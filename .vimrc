@@ -28,6 +28,13 @@
 "    Vim基本配置
 "===================================
 "关闭vi的一致性模式 避免以前版本的一些Bug和局限
+if has('gui_running')
+      set background=dark
+        colorscheme solarized
+    else
+        colorscheme molokai
+endif
+      set background=dark
 
 set nocompatible
 "配置backspace键工作方式
@@ -104,15 +111,41 @@ let g:Powline_symbols='fancy'
 
 "nerdtree
 Plugin 'scrooloose/nerdtree'
-autocmd vimenter * NERDTree
+autocmd vimenter * NERDTree | wincmd p
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 :hi Directory guifg=#FF0000 ctermfg=red
-
+let g:NERDTreeWinSize = 25
+:command Wd write|bdelete
 "theme
 let g:rehash256 = 1
+
+"python IDE plugin
+"代码缩进
+Plugin 'vim-scripts/indentpython.vim'
+"自动补全
+Plugin 'davidhalter/jedi-vim'
+"虚拟环境
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+"语法检查/高亮
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+let python_highlight_all=1
+syntax on
+"配色方案
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+
 
 call vundle#end()            " required
 filetype plugin indent on    " required
