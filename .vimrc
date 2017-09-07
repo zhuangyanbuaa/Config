@@ -1,7 +1,7 @@
 "set showcmd             " show command in bottom bar
 "set cursorline          " highlight current line
 "filetype indent on      " load filetype-specific indent files
-"set wildmenu            " visual autocomplete for command menu
+"set wildmenu            " eeeual autocomplete for command menu
 "set showmatch           " highlight matching [{()}]
 "set incsearch           " search as characters are entered
 "set hlsearch            " highlight matches
@@ -28,6 +28,14 @@
 "    Vim基本配置
 "===================================
 "关闭vi的一致性模式 避免以前版本的一些Bug和局限
+"使用自定义的方向键，插入功能使用h作为快捷键
+map l <Right>
+map k <Down>
+map j <Left>
+map i <Up>
+map h <Insert>
+"使用系统剪切板
+set clipboard=unnamed
 if has('gui_running')
       set background=dark
         colorscheme solarized
@@ -102,6 +110,8 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'VundleVim/Vundle.vim'
 "powerlin
 Plugin 'Lokaltog/vim-powerline'
@@ -162,5 +172,12 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+"不可以使用鼠标激活visual
+set mouse-=a
+
+
+
+
 
 
