@@ -176,8 +176,72 @@ filetype plugin indent on    " required
 "不可以使用鼠标激活visual
 set mouse-=a
 
+"程序编译快捷键
+""""""""""""""""""""""    "Quickly Run    """"""""""""""""""""""    
+map <F5>:call CompileRunGcc()<CR>    
+    func! CompileRunGcc()        
+        exec "w"        
+        if &filetype == 'c'            
+            exec "!g++ % -o %<"           
+            exec "!time ./%<"        
+        elseif &filetype == 'cpp'            
+            exec "!g++ % -o %<"            
+            exec "!time ./%<"        
+        elseif &filetype == 'java'            
+            exec "!javac %"            
+            exec "!time java %<"        
+        elseif &filetype == 'sh'            
+            :!time bash %        
+        elseif &filetype == 'python'            
+            exec "!time python2.7 %"        
+        elseif &filetype == 'html'            
+            exec "!firefox % &"        
+        elseif &filetype == 'go'    
+            "exec "!go build %<"            
+            exec "!time go run %"        
+        elseif &filetype == 'mkd'            
+            exec "!~/.vim/markdown.pl % > %.html &"            
+            exec "!firefox %.html &"        
+        endif    
+    endfunc
 
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+ 
+Plugin 'tmhedberg/SimpylFold'
+let g:SimpylFold_docstring_preview=1
 
+" enable syntax highlighting
+syntax enable
 
+" show line numbers
+set number
+
+" set tabs to have 4 spaces
+set ts=4
+
+" indent when moving to the next line while writing code
+set autoindent
+
+" expand tabs into spaces
+set expandtab
+
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+
+" show a visual line under the cursor's current line
+set cursorline
+
+" show the matching part of the pair for [] {} and ()
+set showmatch
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+"auto-format
+Plugin 'Chiel92/vim-autoformat'
 
