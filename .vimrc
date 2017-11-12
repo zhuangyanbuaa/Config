@@ -242,6 +242,11 @@ set showmatch
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
+"control paste format
+nnoremap  :set invpaste paste? imap :set invpaste paste? set pastetoggle=
+set paste
 "auto-format
 Plugin 'Chiel92/vim-autoformat'
 
+"add syntax for en_au
+setlocal spell spelllang=en_us
