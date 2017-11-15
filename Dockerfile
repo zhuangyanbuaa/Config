@@ -14,7 +14,7 @@ ENV CUDA_PKG_VERSION 8-0=$CUDA_VERSION-1
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libssl-dev \
         make build-essential libssl-dev zlib1g-dev libbz2-dev libsqlite3-dev \
-        git vim python tmux wget \
+        git vim python wget \
         cuda-nvrtc-$CUDA_PKG_VERSION \
         cuda-nvgraph-$CUDA_PKG_VERSION \
         cuda-cusolver-$CUDA_PKG_VERSION \
@@ -28,10 +28,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y --no-install-recommends \
         cuda
+
 #create user 
 RUN useradd -g users -G users wchen -u 18998 &&\
     echo "wchen ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers &&\
     echo "su - wchen" >> /root/.bashrc
+
 #install pyenv
 RUN cd ~ &&\
     git clone git://github.com/yyuu/pyenv.git .pyenv &&\
@@ -39,6 +41,18 @@ RUN cd ~ &&\
     echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile &&\
     echo 'eval "$(pyenv init -)"' >> ~/.bash_profile &&\
     git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+
+#install cudnn
+ENV CUDNN_TAR_FILE cudnn-8.0-linux-x64-v6.0.tgz
+RUN cd ~ &&\
+    mkdir cudnn &&\
+    cd cudnn &&\ 
+    wget http://developer.download.nvidia.com/compute/redist/cudnn/v6.0/$CUDNN_TAR_FILE &&\
+    tar -xzvf $CUDNN_TAR_FILE &&\
+    sudo cp -P cuda/include/cudnn.h /usr/local/cuda-8.0/include &&\
+    sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-8.0/lib64/ &&\
+    sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
+
 # nvidia-docker 1.0
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 LABEL com.nvidia.cuda.version="${CUDA_VERSION}"
