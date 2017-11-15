@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Ｃｈｅｎ　Ｗｅｉｃｈａｎｇ
+#	email = wchen@MBP-Mangohero.local
+[user]
+	name = wchen
+	email = wchen@yahoo-co.jp
+[core]
+	excludesfile = /Users/wchen/.gitignore_global
