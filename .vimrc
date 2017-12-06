@@ -250,3 +250,5 @@ Plugin 'Chiel92/vim-autoformat'
 
 "add syntax for en_au
 setlocal spell spelllang=en_us
+vmap "+y :w !pbcopy<CR><CR>   
+nmap "+p :r !pbpaste<CR><CR>
