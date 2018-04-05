@@ -6,3 +6,5 @@
 #### config tmux
 * yum isntall tmux
 * cp .tmux.conf ~/
+#### install from dockerFile
+* docker build -< Dockerfile
