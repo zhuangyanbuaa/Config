@@ -7,4 +7,4 @@
 * yum isntall tmux
 * cp .tmux.conf ~/
 #### install from dockerFile
-* docker build -< Dockerfile
+* docker build -t <repo_name>/<tag_name:version> -< Dockerfile
