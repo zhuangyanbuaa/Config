@@ -9,6 +9,7 @@
 #### install from dockerFile
 
 1. Download ubuntu/centos all versions dockerfile from nvidia
+	* git branch -a
 	* git clone -b (ubuntu/centos) https://gitlab.com/nvidia/cuda.git
 2. Modify/add personal_config into Dockerfile
 	* check Dockerfile_personal_config
