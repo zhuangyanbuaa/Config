@@ -17,7 +17,7 @@
 	* modify Dockerfile repository="nvidia/cuda"
 	* docker build -t <repo_name>/<tag_name:version>  <target_folder_path>
 4. Make container from image
-	* sudo nvidia-docker --name="name" --hostname="name" -v /home/wchen:/home/wchen -p 8080:8080 -p 6060:6060 -td <image_name>
+	* sudo nvidia-docker run --name="name" --hostname="name" -v /home/wchen:/home/wchen -p 8080:8080 -p 6060:6060 -td <image_name>
 5. Enter container
 	* docker exec -it <container_name> bash
 	* source ~/.bash_profile_gpu
