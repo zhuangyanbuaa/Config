@@ -14,6 +14,7 @@
 2. Modify/add personal_config into Dockerfile
 	* check Dockerfile_personal_config
 3. Build target-docker image
+	* modify Dockerfile repository="nvidia/cuda"
 	* docker build -t <repo_name>/<tag_name:version>  <target_folder_path>
 4. Make container from image
 	* sudo nvidia-docker --name="name" --hostname="name" -v /home/wchen:/home/wchen -p 8080:8080 -p 6060:6060 -td <image_name>
