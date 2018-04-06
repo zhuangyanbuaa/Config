@@ -11,27 +11,27 @@ RUN useradd -g users -G users wchen -u 18998 &&\
     echo "wchen ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers &&\
     echo "su - wchen" >> /root/.bashrc
 #Download personal config file
-RUN cd ~ &&\
+RUN cd /home/wchen &&\
     git clone https://github.com/mangohero1985/vim_config.git &&\
-    cd ~/vim_config &&\
-    mv .vim ~/ &&\
-    mv .vimrc ~/ &&\
-    mv .tmux.conf ~/ &&\
-    cd ~/.vim/bundle/ &&\
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    cd /home/wchen/vim_config &&\
+    mv .vim /home/wchen/ &&\
+    mv .vimrc /home/wchen/ &&\
+    mv .tmux.conf /home/wchen/ &&\
+    cd /home/wchen/.vim/bundle/ &&\
+    git clone https://github.com/VundleVim/Vundle.vim.git /home/wchen/.vim/bundle/Vundle.vim
 
 #install pyenv
-RUN cd ~ &&\
+RUN cd /home/wchen &&\
     git clone git://github.com/yyuu/pyenv.git .pyenv &&\
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile &&\
-    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile &&\
-    echo 'eval "$(pyenv init -)"' >> ~/.bash_profile &&\
-    git clone git://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> /home/wchen/.bash_profile_gpu &&\
+    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> /home/wchen/.bash_profile_gpu &&\
+    echo 'eval "$(pyenv init -)"' >> /home/wchen/.bash_profile_gpu &&\
+    git clone git://github.com/yyuu/pyenv-virtualenv.git /home/wchen/.pyenv/plugins/pyenv-virtualenv
 
 #make bash_profile (cudn version according to docker version)
 RUN cd ~ &&\
     touch ~/.bash_profile_gpu &&\
-    echo 'export PATH=/usr/local/nvidia/bin/:$PATH' >> ~/.bash_profile_bash &&\
-    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64' >> ~/.bash_profile_bash &&\
-    echo 'export CUDA_HOME=/usr/local/cuda-9.0/' >> ~/.bash_profile_bash &&\
-    echo 'export PATH=$PATH:/usr/local/cuda-9.0/bin/:$PATH' >> ~/.bash_profile_bash
+    echo 'export PATH=/usr/local/nvidia/bin/:$PATH' >> /home/wchen/.bash_profile_gpu &&\
+    echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64' >> /home/wchen/.bash_profile_gpu &&\
+    echo 'export CUDA_HOME=/usr/local/cuda-9.0/' >> /home/wchen/.bash_profile_gpu &&\
+    echo 'export PATH=$PATH:/usr/local/cuda-9.0/bin/:$PATH' >> /home/wchen/.bash_profile_gpu
