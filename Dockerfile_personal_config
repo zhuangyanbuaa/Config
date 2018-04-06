@@ -10,6 +10,7 @@ RUN yum install -y git
 RUN useradd -g users -G users wchen -u 18998 &&\
     echo "wchen ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers &&\
     echo "su - wchen" >> /root/.bashrc
+RUN su wchen
 #Download personal config file
 RUN cd /home/wchen &&\
     git clone https://github.com/mangohero1985/vim_config.git &&\
