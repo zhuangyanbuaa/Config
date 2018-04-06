@@ -21,3 +21,5 @@
 5. Enter container
 	* docker exec -it <container_name> bash
 	* source ~/.bash_profile_gpu
+6. check cuda install
+	* nvidia-smi
