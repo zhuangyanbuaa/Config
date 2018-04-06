@@ -17,6 +17,7 @@
 	* modify Dockerfile repository="nvidia/cuda"
 	* Modify/add personal_config into Dockerfile
 	* remember to make cuda version with image cuda version same
+	* combine Dockfile and cudnn Dockfile
 	* docker build -t <repo_name>/<tag_name:version>  <target_folder_path>
 3. Make container from image
 	* sudo nvidia-docker run --name="name" --hostname="name" -v /home/wchen:/home/wchen -p 8080:8080 -p 6060:6060 -td <image_name>
