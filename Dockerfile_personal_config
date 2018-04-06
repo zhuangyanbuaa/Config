@@ -4,19 +4,19 @@ RUN yum install sudo &&\
 	yum install which &&\
 	yum install vim &&\
 	yum install tmux &&\
-	yum install git &&\
+	yum install git
 	
 #create user 
 RUN useradd -g users -G users wchen -u 18998 &&\
     echo "wchen ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers &&\
-    echo "su - wchen" >> /root/.bashrc
+    echo "su - wchen" >> /root/.bashrc 
 #Download personal config file
 RUN cd ~ &&\
 	git clone https://github.com/mangohero1985/vim_config.git &&\
 	cd ~/vim_config &&\
 	mv .* ~/ &&\
 	cd ~/.vim/bundle/ &&\
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &&\
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 
 #install pyenv
 RUN cd ~ &&\
@@ -32,4 +32,4 @@ RUN cd ~ &&\
 	echo 'export PATH=/usr/local/nvidia/bin/:$PATH' >> ~/.bash_profile_bash &&\
 	echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64' >> ~/.bash_profile_bash &&\
 	echo 'export CUDA_HOME=/usr/local/cuda-9.0/' >> ~/.bash_profile_bash &&\
-	echo 'export PATH=$PATH:/usr/local/cuda-9.0/bin/:$PATH' >> ~/.bash_profile_bash &&\ 
+	echo 'export PATH=$PATH:/usr/local/cuda-9.0/bin/:$PATH' >> ~/.bash_profile_bash 
