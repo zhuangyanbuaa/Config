@@ -13,15 +13,15 @@
 	* cd cuda
 	* git branch -a
 	* git checkout <branch>
-2. Modify/add personal_config into Dockerfile
-	* check Dockerfile_personal_config
-3. Build target-docker image
+2. Build target-docker image
 	* modify Dockerfile repository="nvidia/cuda"
+	* Modify/add personal_config into Dockerfile
+	* remember to make cuda version with image cuda version same
 	* docker build -t <repo_name>/<tag_name:version>  <target_folder_path>
-4. Make container from image
+3. Make container from image
 	* sudo nvidia-docker run --name="name" --hostname="name" -v /home/wchen:/home/wchen -p 8080:8080 -p 6060:6060 -td <image_name>
-5. Enter container
+4. Enter container
 	* docker exec -it <container_name> bash
 	* source ~/.bash_profile_gpu
-6. check cuda install
+5. check cuda install
 	* nvidia-smi
