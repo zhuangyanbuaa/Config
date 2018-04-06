@@ -21,8 +21,8 @@ RUN cd /home/wchen &&\
     git clone https://github.com/VundleVim/Vundle.vim.git /home/wchen/.vim/bundle/Vundle.vim
 
 #make bash_profile (cudn version according to docker version)
-RUN cd ~ &&\
-    touch ~/.bash_profile_gpu &&\
+RUN cd /home/wchen &&\
+    touch /home/wchen/.bash_profile_gpu &&\
     echo 'export PATH=/usr/local/nvidia/bin/:$PATH' >> /home/wchen/.bash_profile_gpu &&\
     echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64' >> /home/wchen/.bash_profile_gpu &&\
     echo 'export CUDA_HOME=/usr/local/cuda-9.0/' >> /home/wchen/.bash_profile_gpu &&\
