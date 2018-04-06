@@ -30,7 +30,7 @@ RUN cd ~ &&\
 
 #make bash_profile (cudn version according to docker version)
 RUN cd ~ &&\
-    touch ~/.bash_profile_bash &&\
+    touch ~/.bash_profile_gpu &&\
     echo 'export PATH=/usr/local/nvidia/bin/:$PATH' >> ~/.bash_profile_bash &&\
     echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64' >> ~/.bash_profile_bash &&\
     echo 'export CUDA_HOME=/usr/local/cuda-9.0/' >> ~/.bash_profile_bash &&\
