@@ -5,6 +5,8 @@ RUN yum install -y which
 RUN yum install -y vim
 RUN yum install -y tmux
 RUN yum install -y git
+RUN yum install gcc glibc glibc-common gd gd-devel -y
+RUN yum install -y wget
 
 #create user
 RUN useradd -g users -G users wchen -u 18998 &&\
