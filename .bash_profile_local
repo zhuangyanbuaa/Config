@@ -1,0 +1,72 @@
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
+export PATH=/home/conan/toolkit/ant196/bin:$PATH
+export PATH=/Users/wchen/Downloads/Software/development/apache-maven-3.3.3/bin:$PATH
+export LC_COLLATE="en_US.UTF-8"
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+export GREP_OPTIONS='--color=always' GREP_COLOR='1;33'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+setjdk() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+}
+# Added by install_latest_perl_osx.pl
+[ -r /Users/wchen/.bashrc ] && source /Users/wchen/.bashrc
+export PATH=/Users/wchen/Downloads/Software/development/play/play-1.3:$PATH
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export PATH=/Applications/Sublime.app/Contents/SharedSupport/bin/:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PATH=/Users/wchen/Downloads/Software/development/play/activator-dist-1.3.12/bin:$PATH
+
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+if [ -f ~/.git-completion.bash ]; then
+   . ~/.git-completion.bash
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+alias ll="ls -l"
+# prompt display hostname
+export PS1='[\u@\h \W]\$ '
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
