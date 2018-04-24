@@ -26,4 +26,3 @@
 	* source ~/.bash_profile_gpu
 5. check cuda install
 	* nvidia-smi
-6.
