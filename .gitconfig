@@ -1,9 +1,5 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-#	name = Ｃｈｅｎ　Ｗｅｉｃｈａｎｇ
-#	email = wchen@MBP-Mangohero.local
-[user]
 	name = mangohero
 	email = mangohero1985@hotmail.com
 [core]

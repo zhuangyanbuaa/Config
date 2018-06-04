@@ -7,7 +7,10 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export GREP_OPTIONS='--color=always' GREP_COLOR='1;33'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+<<<<<<< HEAD
 export CLASSPATH=/Users/wchen/Downloads/amazon_data/stanford-postagger-2015-04-20/stanford-postagger.jar:$CLASSPATH
+=======
+>>>>>>> d06d45136dba88f6fd78ed1588c40e0955ca7a57
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 setjdk() {
   export JAVA_HOME=$(/usr/libexec/java_home -v $1)
@@ -23,7 +26,11 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PATH=/Users/wchen/Downloads/Software/development/play/activator-dist-1.3.12/bin:$PATH
 
+<<<<<<< HEAD
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+=======
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+>>>>>>> d06d45136dba88f6fd78ed1588c40e0955ca7a57
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 if [ -f ~/.git-completion.bash ]; then
@@ -31,3 +38,46 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+<<<<<<< HEAD
+=======
+alias ll="ls -l"
+# prompt display hostname
+export PS1='[\u@\h \W]\$ '
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+>>>>>>> d06d45136dba88f6fd78ed1588c40e0955ca7a57
