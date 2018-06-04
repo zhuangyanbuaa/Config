@@ -21,6 +21,8 @@
 	* docker build -t <repo_name>/<tag_name:version>  <target_folder_path>
 3. Make container from image
 	* sudo nvidia-docker run --name="name" --hostname="name" -v /home/wchen:/home/wchen -p 8080:8080 -p 6060:6060 -td <image_name>
+			
+			some useful options: --user root -e NB_GID=100 -e GEN_CERT=yes -e GRANT_SUDO=yes
 4. Enter container
 	* docker exec -it <container_name> bash
 	* source ~/.bash_profile_gpu
